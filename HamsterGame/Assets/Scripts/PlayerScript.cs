@@ -6,7 +6,7 @@ public class PlayerScript : MonoBehaviour
 {
     public float accelerate;
     public float maxSpeed;
-    public float jump;
+    public float jumpPow;
     public bool onGround = false;
     public int direction;
     public Rigidbody2D playerRB;
@@ -61,7 +61,7 @@ public class PlayerScript : MonoBehaviour
     {
         if (Input.GetKeyDown(upKey) && onGround == true)
         {
-            playerRB.AddForce(Vector2.up * jump);
+            playerRB.AddForce(Vector2.up * jumpPow);
         }
     }
 

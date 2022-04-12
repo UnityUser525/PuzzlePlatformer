@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 1091389078115592842}
   m_Layer: 0
   m_Name: Player2
-  m_TagString: Player
+  m_TagString: Player2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -147,8 +147,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   accelerate: 0
-  maxSpeed: 3
-  jump: 300
+  maxSpeed: 5
+  jumpPow: 0
   onGround: 0
   direction: 0
   playerRB: {fileID: 0}
@@ -193,9 +193,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fad54724d9bc2484f893281b9c54eb73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  accelerate: 10
-  maxSpeed: 3
-  jump: 500
+  accelerate: 15
+  maxSpeed: 4
+  jumpPow: 350
   onGround: 0
   direction: 0
   playerRB: {fileID: 0}
