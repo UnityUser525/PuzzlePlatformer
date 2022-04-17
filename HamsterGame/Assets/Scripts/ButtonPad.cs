@@ -14,9 +14,18 @@ public class ButtonPad : MonoBehaviour
         activatorScript = gameObject.GetComponent<ActivatorScript>();
     }
 
+    void Update()
+    {
+        if (multiPlayerButton == true && activatorScript.isActive == false)
+        {
+            recipiantObject.isActive = false;
+        }
+        
+    }
+
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (multiPlayerButton == false || activatorScript.isActive == true)
+        if ((multiPlayerButton == false || activatorScript.isActive == true) && collision.gameObject.CompareTag("Ground") == false)
         {
             recipiantObject.isActive = true;
         }
