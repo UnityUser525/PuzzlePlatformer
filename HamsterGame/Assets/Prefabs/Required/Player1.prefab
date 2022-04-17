@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 730177808275308825}
   - component: {fileID: -4547763694056938118}
   - component: {fileID: 3588081171579553280}
+  - component: {fileID: -3584343510478100819}
   m_Layer: 0
   m_Name: Player1
   m_TagString: Player1
@@ -73,10 +74,10 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1035810029
-  m_SortingLayer: -2
+  m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2902247422746666468, guid: b4e971e3c8dacdd40a2e7b8fabe68af3, type: 3}
-  m_Color: {r: 1, g: 0.5424528, b: 0.5424528, a: 1}
+  m_Sprite: {fileID: -276728812324164698, guid: 9664718126ede344282921c2a9213137, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -99,18 +100,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.100000024}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.37333333, y: 0.5133333}
-    oldSize: {x: 2.631579, y: 2.631579}
+    pivot: {x: 0.50666666, y: 0.5}
+    oldSize: {x: 5.263158, y: 5.263158}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.4, y: 1}
   m_EdgeRadius: 0
 --- !u!50 &730177808275308825
 Rigidbody2D:
@@ -146,18 +147,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.5}
+  m_Offset: {x: 0, y: -0.4}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.37333333, y: 0.5133333}
-    oldSize: {x: 2.631579, y: 2.631579}
+    pivot: {x: 0.50666666, y: 0.5}
+    oldSize: {x: 5.263158, y: 5.263158}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.9, y: 0.05}
+  m_Size: {x: 1.33, y: 0.05}
   m_EdgeRadius: 0
 --- !u!114 &3588081171579553280
 MonoBehaviour:
@@ -180,3 +181,22 @@ MonoBehaviour:
   upKey: 273
   leftKey: 276
   rightKey: 275
+--- !u!95 &-3584343510478100819
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 730177808275308903}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 00b707edaeeb2f14280906f9fd7b3dc6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

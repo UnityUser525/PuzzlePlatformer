@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class PlayerScript : MonoBehaviour
 {
+    private GameManager gameManager;
+
+    private Animator playerAnimator;
+    private SpriteRenderer playerSpriteRenderer;
+
     public float accelerate;
     public float maxSpeed;
     public float jumpPow;
@@ -18,17 +23,36 @@ public class PlayerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
+
         playerRB = gameObject.GetComponent<Rigidbody2D>();
+        playerAnimator = gameObject.GetComponent<Animator>();
+        playerSpriteRenderer = gameObject.GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (gameManager.gameOver == true)
+        {
+            if (playerAnimator.GetInteger("StateNum") != 0 && onGround == true)
+            {
+                playerAnimator.SetInteger("StateNum", 1);
+            }
+            return;
+        }
+
+        BasicAnim();
         Jump();
     }
 
     private void FixedUpdate()
     {
+        if (gameManager.gameOver == true)
+        {
+            return;
+        }
+
         Movement();
     }
 
@@ -41,10 +65,12 @@ public class PlayerScript : MonoBehaviour
         else if (Input.GetKey(leftKey))
         {
             direction = -1;
+            playerSpriteRenderer.flipX = true;
         }
         else if (Input.GetKey(rightKey))
         {
             direction = 1;
+            playerSpriteRenderer.flipX = false;
         }
         else
         {
@@ -57,11 +83,38 @@ public class PlayerScript : MonoBehaviour
         }
     }
 
+    private bool playJumpAnim = false;
     private void Jump()
     {
         if (Input.GetKeyDown(upKey) && onGround == true)
         {
             playerRB.AddForce(Vector2.up * jumpPow);
+            playJumpAnim = true;
+        }
+    }
+
+    private bool jumpAnimPlayed = false;
+    private void BasicAnim()
+    {
+        if (onGround == false && jumpAnimPlayed == false && playJumpAnim == true)
+        {
+            playerAnimator.SetInteger("StateNum", 3);
+            jumpAnimPlayed = true;
+            playJumpAnim = false;
+            
+        }
+        else if (onGround == true)
+        {
+            jumpAnimPlayed = false;
+
+            if (direction == 0)
+            {
+                playerAnimator.SetInteger("StateNum", 1);
+            }
+            else
+            {
+                playerAnimator.SetInteger("StateNum", 2);
+            }
         }
     }
 
@@ -76,10 +129,28 @@ public class PlayerScript : MonoBehaviour
     {
         onGround = false;
     }
-    
+
+
+    public void otherPlayerDie(GameObject deadPlayer)
+    {
+        if (deadPlayer.transform.position.x > transform.position.x)
+        {
+            playerSpriteRenderer.flipX = false;
+        }
+        else
+        {
+            playerSpriteRenderer.flipX = true;
+        }
+
+        playerAnimator.SetInteger("StateNum", 0);
+    }
+
 
     public void playerDie()
     {
-        GameObject.Find("Game Manager").GetComponent<GameManager>().PlayerDie(gameObject);
+        if (gameManager.gameOver == false)
+        {
+            GameObject.Find("Game Manager").GetComponent<GameManager>().PlayerDie(gameObject);
+        }
     }
 }

@@ -45,5 +45,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelNum: 1
   nextLevelButton: {fileID: 0}
-  Door1: {fileID: 0}
-  Door2: {fileID: 0}
+  explotionAnim: {fileID: 5324437596494319809, guid: 848038eff06288146b4468354e4dad4a, type: 3}
+  door1: {fileID: 0}
+  door2: {fileID: 0}
+  player1: {fileID: 0}
+  player2: {fileID: 0}
+  cameraScript: {fileID: 0}

@@ -5,7 +5,10 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public int levelNum;
+    public bool gameOver = false;
+
     public GameObject nextLevelButton;
+    public GameObject explotionAnim;
 
     public Door door1;
     public Door door2;
@@ -30,6 +33,8 @@ public class GameManager : MonoBehaviour
     {
         if (door1.atDoor == true && door2.atDoor == true)
         {
+            gameOver = true;
+
             if (PlayerPrefs.GetInt("LevelGotTo") <= levelNum)
             {
                 PlayerPrefs.SetInt("LevelGotTo", levelNum + 1);
@@ -41,13 +46,21 @@ public class GameManager : MonoBehaviour
 
     public void PlayerDie(GameObject deadPlayer)
     {
+        gameOver = true;
+
         if (deadPlayer == player1)
         {
+            player2.GetComponent<PlayerScript>().otherPlayerDie(player1);
             cameraScript.ZoomPlayer(player2);
+            Instantiate(explotionAnim, deadPlayer.transform.position, Quaternion.identity);
         }
         else
         {
+            player1.GetComponent<PlayerScript>().otherPlayerDie(player2);
             cameraScript.ZoomPlayer(player1);
+            Instantiate(explotionAnim, deadPlayer.transform.position, Quaternion.identity);
         }
+
+        Destroy(deadPlayer);
     }
 }
