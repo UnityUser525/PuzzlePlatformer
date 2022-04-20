@@ -902,6 +902,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7027259927929188901, guid: 39f76b9273757174bb411670da640c40, type: 3}
+      propertyPath: speed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7027259927929188901, guid: 39f76b9273757174bb411670da640c40, type: 3}
       propertyPath: point1
       value: 
       objectReference: {fileID: 641680024}

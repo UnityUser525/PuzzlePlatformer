@@ -8,6 +8,7 @@ TagManager:
   - Player2
   - Snowball
   - Ground
+  - Moving Object
   layers:
   - Default
   - TransparentFX

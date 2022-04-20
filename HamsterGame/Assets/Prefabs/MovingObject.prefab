@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 7027259927929188903}
   m_Layer: 0
   m_Name: MovingObject
-  m_TagString: Untagged
+  m_TagString: Moving Object
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -113,9 +113,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activatorScript: {fileID: 0}
   speed: 10
+  oneTime: 0
   point1: {fileID: 0}
   point2: {fileID: 0}
   targetPos: {x: 0, y: 0}
+  playerAdjust: 0
 --- !u!61 &7027259927929188902
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -161,5 +163,5 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0

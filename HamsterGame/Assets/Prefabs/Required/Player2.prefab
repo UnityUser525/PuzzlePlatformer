@@ -174,7 +174,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   accelerate: 15
   maxSpeed: 4
-  jumpPow: 350
+  jumpPow: 400
   onGround: 0
   direction: 0
   playerRB: {fileID: 0}
