@@ -46,12 +46,21 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: TileMap
+    uniqueID: 3032403939
+    locked: 0
   - name: Object
     uniqueID: 489905947
+    locked: 0
+  - name: Moving Object
+    uniqueID: 3246840601
     locked: 0
   - name: Door
     uniqueID: 3659480851
     locked: 0
   - name: Player
     uniqueID: 3259157267
+    locked: 0
+  - name: UI
+    uniqueID: 3609590927
     locked: 0
