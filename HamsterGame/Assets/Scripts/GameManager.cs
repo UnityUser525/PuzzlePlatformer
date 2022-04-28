@@ -20,6 +20,8 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        Time.timeScale = 1;
+
         door1 = GameObject.Find("Door1").GetComponent<Door>();
         door2 = GameObject.Find("Door2").GetComponent<Door>();
 
