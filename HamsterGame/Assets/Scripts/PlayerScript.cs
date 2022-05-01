@@ -13,6 +13,7 @@ public class PlayerScript : MonoBehaviour
     public float maxSpeed;
     public float jumpPow;
     public bool onGround = false;
+    private bool walkAnim = false;
     public int direction;
     public Rigidbody2D playerRB;
 
@@ -61,20 +62,48 @@ public class PlayerScript : MonoBehaviour
         if (Input.GetKey(leftKey) && Input.GetKey(rightKey))
         {
             direction = 0;
+            walkAnim = false;
         }
         else if (Input.GetKey(leftKey))
         {
-            direction = -1;
+            RaycastHit2D movingDoorRay1 = Physics2D.Raycast(new Vector2(transform.position.x - 0.7f, transform.position.y + 0.5f), Vector2.left, 0.1f);
+            RaycastHit2D movingDoorRay2 = Physics2D.Raycast(new Vector2(transform.position.x - 0.7f, transform.position.y - 0.5f), Vector2.left, 0.1f);
+
             playerSpriteRenderer.flipX = true;
+            walkAnim = true;
+
+            if ((movingDoorRay1.collider == null || movingDoorRay1.collider.gameObject.CompareTag("Moving Object Vertical") == false) && (movingDoorRay2.collider == null || movingDoorRay2.collider.gameObject.CompareTag("Moving Object Vertical") == false))
+            {
+                direction = -1;
+            }
+            else
+            {
+                gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0, gameObject.GetComponent<Rigidbody2D>().velocity.y);
+                direction = 0;
+            }
         }
         else if (Input.GetKey(rightKey))
         {
-            direction = 1;
+            RaycastHit2D movingDoorRay1 = Physics2D.Raycast(new Vector2(transform.position.x + 0.7f, transform.position.y + 0.5f), Vector2.right, 0.1f);
+            RaycastHit2D movingDoorRay2 = Physics2D.Raycast(new Vector2(transform.position.x + 0.7f, transform.position.y - 0.5f), Vector2.right, 0.1f);
+
             playerSpriteRenderer.flipX = false;
+            walkAnim = true;
+
+            if ((movingDoorRay1.collider == null || movingDoorRay1.collider.gameObject.CompareTag("Moving Object Vertical") == false) && (movingDoorRay2.collider == null || movingDoorRay2.collider.gameObject.CompareTag("Moving Object Vertical") == false))
+            {
+                direction = 1;
+            }
+            else
+            {
+                gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0, gameObject.GetComponent<Rigidbody2D>().velocity.y);
+                direction = 0;
+            }
         }
         else
         {
             direction = 0;
+            walkAnim = false;
         }
 
         if ((direction > 0 && playerRB.velocity.x <= maxSpeed) || (direction < 0 && playerRB.velocity.x >= (-1 * maxSpeed)))
@@ -90,6 +119,7 @@ public class PlayerScript : MonoBehaviour
         {
             playerRB.AddForce(Vector2.up * jumpPow);
             playJumpAnim = true;
+            gameObject.GetComponent<AudioSource>().Play();
         }
     }
 
@@ -107,7 +137,7 @@ public class PlayerScript : MonoBehaviour
         {
             jumpAnimPlayed = false;
 
-            if (direction == 0)
+            if (walkAnim == false)
             {
                 playerAnimator.SetInteger("StateNum", 1);
             }
