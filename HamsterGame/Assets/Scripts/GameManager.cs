@@ -7,6 +7,9 @@ public class GameManager : MonoBehaviour
     public int levelNum;
     public bool gameOver = false;
 
+    public GameObject moon;
+    public float moonSizeAdjust;
+
     public GameObject nextLevelButton;
     public GameObject explotionAnim;
 
@@ -20,6 +23,8 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        moon.transform.localScale = new Vector3(1 + (PlayerPrefs.GetInt("LevelGotTo") * moonSizeAdjust), 1 + (PlayerPrefs.GetInt("LevelGotTo") * moonSizeAdjust), 1);
+
         Application.targetFrameRate = 60;
         Time.timeScale = 1;
 

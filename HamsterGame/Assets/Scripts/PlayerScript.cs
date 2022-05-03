@@ -66,8 +66,8 @@ public class PlayerScript : MonoBehaviour
         }
         else if (Input.GetKey(leftKey))
         {
-            RaycastHit2D movingDoorRay1 = Physics2D.Raycast(new Vector2(transform.position.x - 0.7f, transform.position.y + 0.5f), Vector2.left, 0.1f);
-            RaycastHit2D movingDoorRay2 = Physics2D.Raycast(new Vector2(transform.position.x - 0.7f, transform.position.y - 0.5f), Vector2.left, 0.1f);
+            RaycastHit2D movingDoorRay1 = Physics2D.Raycast(new Vector2(transform.position.x - 0.7f, transform.position.y + 0.6f), Vector2.left, 0.1f);
+            RaycastHit2D movingDoorRay2 = Physics2D.Raycast(new Vector2(transform.position.x - 0.7f, transform.position.y - 0.4f), Vector2.left, 0.1f);
 
             playerSpriteRenderer.flipX = true;
             walkAnim = true;
@@ -84,8 +84,8 @@ public class PlayerScript : MonoBehaviour
         }
         else if (Input.GetKey(rightKey))
         {
-            RaycastHit2D movingDoorRay1 = Physics2D.Raycast(new Vector2(transform.position.x + 0.7f, transform.position.y + 0.5f), Vector2.right, 0.1f);
-            RaycastHit2D movingDoorRay2 = Physics2D.Raycast(new Vector2(transform.position.x + 0.7f, transform.position.y - 0.5f), Vector2.right, 0.1f);
+            RaycastHit2D movingDoorRay1 = Physics2D.Raycast(new Vector2(transform.position.x + 0.7f, transform.position.y + 0.6f), Vector2.right, 0.1f);
+            RaycastHit2D movingDoorRay2 = Physics2D.Raycast(new Vector2(transform.position.x + 0.7f, transform.position.y - 0.4f), Vector2.right, 0.1f);
 
             playerSpriteRenderer.flipX = false;
             walkAnim = true;
