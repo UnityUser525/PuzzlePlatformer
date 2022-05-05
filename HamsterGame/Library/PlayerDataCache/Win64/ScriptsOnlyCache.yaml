@@ -1134,7 +1134,7 @@ ScriptsOnlyBuild:
     className: Button
   - hash:
       serializedVersion: 2
-      Hash: 2d404266317feba521112aa43f7d40f0
+      Hash: 011194c3968609d2a492f99fe08cd502
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: MovingObject
@@ -1466,5 +1466,5 @@ ScriptsOnlyBuild:
   - Assets/Scenes/Level4.unity
   - Assets/Scenes/Level5.unity
   - Assets/Scenes/Level6.unity
-  playerPath: C:/Users/mkm/Desktop/Create With Code/GitHub/PuzzlePlatformer/HamsterGame/Game
+  playerPath: C:/Users/mkmihailov/Desktop/UnityRepository/UnityGameStuff/HamsterGame/Game
     Builds/HamsterGame.exe
