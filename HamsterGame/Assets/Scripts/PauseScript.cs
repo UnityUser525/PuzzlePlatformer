@@ -17,14 +17,14 @@ public class PauseScript : MonoBehaviour
         if (paused == false)
         {
             pauseMenu.SetActive(true);
-            pauseImage.GetComponent<SpriteRenderer>().sprite = pauseSprite;
+            pauseImage.GetComponent<SpriteRenderer>().sprite = playSprite;
             Time.timeScale = 0;
             paused = true;
         }
         else if (paused == true)
         {
             pauseMenu.SetActive(false);
-            pauseImage.GetComponent<SpriteRenderer>().sprite = playSprite;
+            pauseImage.GetComponent<SpriteRenderer>().sprite = pauseSprite;
             Time.timeScale = 1;
             paused = false;
         }
